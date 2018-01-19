@@ -1,5 +1,3 @@
-Song.destroy_all
-Artist.destroy
 
 artist_1 = Artist.create!({name: "Britney Spears", image_url:"niks.jpg"})
 artist_2 = Artist.create!({name: "Justin Bieber", image_url:"niks.jpeg"})
