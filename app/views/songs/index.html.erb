@@ -1,12 +1,13 @@
+
+
 <div>
 
-  <h1>List of all songs</h1>
+  <h1>Songs:</h1>
 
-
-    <% @songs.each do |song| %>
+    <% @artist.songs.each do |song| %>
       <p><%= song.name %></p>
     <% end %>
 
-    <%= link_to "[Add Song]" %>
+    <%= link_to "[Add Song]", new_artist_song_path(@artist) %>
 
 </div>
