@@ -8,10 +8,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
-  # def destroy
-  #     @artist = Artist.find(params[:id])
-  #     @artist.destroy
-  #     redirect_to @artist, notice: "Artist Deleted!"
-  #   end
-  
+  def destroy
+      @artist = Artist.find(params[:id])
+      @artist.destroy
+      redirect_to @artist, notice: "Artist Deleted!"
+    end
+
 end

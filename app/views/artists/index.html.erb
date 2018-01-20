@@ -8,6 +8,8 @@
   <% @artists.each do |artist| %>
     <p><%= link_to artist.name, artist_path(artist.id) %></p>
     <p class="pictures"><%= image_tag artist.image_url %></p>
+    <p class="deleten"> <%= link_to "[Destroy Artist]", artist_path(artist.id),
+    method: :destroy, data: {confirm: 'Are you sure?'} %></p>
   <% end %>
 
 </div>
