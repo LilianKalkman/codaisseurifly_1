@@ -1,7 +1,7 @@
 
 <h1>Add New Song</h1>
 
-<%= form_with scope: :song, local: true do |form| %>
+<%= form_with scope: :song, url:new_artist_song_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
