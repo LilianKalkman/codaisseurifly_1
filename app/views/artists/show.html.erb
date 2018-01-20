@@ -5,7 +5,7 @@
 
     <% @artist.songs.each do |song| %>
       <p><%= song.name %></p>
-      <p><%= link_to 'Destroy', song.name, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <p><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
 
     <%= link_to "[Add Song]", new_artist_song_path(@artist) %>
