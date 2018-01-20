@@ -10,11 +10,11 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = @artist.songs.new
+    @song = @artist.songs.build
   end
 
   def create
-    @song = @artist.songs.build
+    @song = @artist.songs.create(song_params)
 
     if @song.save
     redirect_to artist_songs_path, notice: "Song Added"
