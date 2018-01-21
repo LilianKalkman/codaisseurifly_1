@@ -3,7 +3,8 @@ FactoryBot.define do
 
     name { Faker::Name.name}
     image_url "MyString"
-    
+
+
   end
 
 
