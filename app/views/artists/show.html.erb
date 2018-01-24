@@ -14,13 +14,5 @@
 
 
 <% @artist.photos.each do |photo| %>
-  <%= image_tag photo.image.thumbnail %>
+  <%= image_tag photo.image %>
 <% end %>
-
-
-<div class="form-group">
-  <span class="btn btn-default">
-    Upload Photos
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
-  </span>
-</div>

@@ -1,13 +1,18 @@
 
-
 <div>
 
   <h1>Songs:</h1>
 
     <% @artist.songs.each do |song| %>
       <p><%= song.name %></p>
+      <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
 
     <%= link_to "[Add Song]", new_artist_song_path(@artist) %>
 
 </div>
+
+
+<% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image %>
+<% end %>
