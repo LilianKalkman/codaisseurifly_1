@@ -10,6 +10,5 @@ class Api::ArtistsController < ApplicationController
     artist = Artist.find(params[:id])
     render status: 200, json: artist.as_json(include: :songs)
   end
-
-
+  
 end
