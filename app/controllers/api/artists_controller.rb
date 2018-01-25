@@ -7,7 +7,7 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-  artist = Artist.find(params[:id])
+    artist = Artist.find(params[:id])
 
     render status: 200, json: {
       artist: artist
