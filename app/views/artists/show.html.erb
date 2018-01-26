@@ -1,26 +1,30 @@
 
-<div>
 
-  <h1>Songs:</h1>
+  <div class="container">
+
+    <h1>Songs</h1>
+
+    <form>
+      <input type="text" id="new-song" placeholder="Add name of song">
+    </form>
+
+    <br>
 
     <% @artist.songs.each do |song| %>
-      <p><%= song.name %></p>
-      <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <li class="songs">
+        <input id="song-1" type="checkbox">
+        <label for="song-1"><%= song.name %></label>
+      </li>
+      <!-- <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
     <% end %>
 
-    <%= link_to "[Add Song]", new_artist_song_path(@artist) %>
-
-
-    <!-- hier html toevoegen die js/jquery makkelijk kan gebruiken met id's etc. zoals de todo app -->
-
-</div>
+    <!-- <%= link_to "[Add Song]", new_artist_song_path(@artist) %> -->
+  </div>
 
 
 <br>
 <br>
 <br>
-
-
 
 <% @artist.photos.each do |photo| %>
   <%= image_tag photo.image %>
