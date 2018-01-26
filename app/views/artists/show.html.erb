@@ -4,7 +4,7 @@
 
     <h1>Songs</h1>
 
-    <form>
+    <form onSubmit="submitTodo(); return false">
       <input type="text" id="new-song" placeholder="Add name of song">
     </form>
 
@@ -12,11 +12,13 @@
 
     <% @artist.songs.each do |song| %>
       <li class="songs">
-        <input id="song-1" type="checkbox">
+        <input id="<%=song.id%>" type="checkbox">
         <label for="song-1"><%= song.name %></label>
       </li>
       <!-- <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
     <% end %>
+
+
     <br>
 
     <div class="footer">
