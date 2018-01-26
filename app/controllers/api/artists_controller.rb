@@ -11,4 +11,13 @@ class Api::ArtistsController < ApplicationController
     render status: 200, json: artist.as_json(include: :songs)
   end
 
+  def destroy
+    artist = Artist.find(params[:id])
+    artist.destroy
+
+    render status: 200, json: {
+      message: "Artist successfully deleted"
+    }.to_json
+  end
+
 end
