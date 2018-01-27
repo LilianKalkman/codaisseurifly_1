@@ -4,7 +4,7 @@
 
     <h1>Songs</h1>
 
-    <form onSubmit="submitTodo(); return false">
+    <form onSubmit="submitNewSong(); return false">
       <input type="text" id="new-song" placeholder="Add name of song">
     </form>
 
@@ -12,8 +12,8 @@
 
     <% @artist.songs.each do |song| %>
       <li class="songs">
-        <input id="<%=song.id%>" type="checkbox">
-        <label for="song-1"><%= song.name %></label>
+        <input id="song-<%=song.id%>" type="checkbox">
+        <label for="song-<%=song.id%>"><%= song.name %></label>
       </li>
       <!-- <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
     <% end %>
@@ -22,7 +22,7 @@
     <br>
 
     <div class="footer">
-      <a href="#" onClick="cleanUpDoneTodos(); return false">Remove</a>
+      <a href="#" id="remove-songs">Remove</a>
     </div>
 
 
