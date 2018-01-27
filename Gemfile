@@ -63,13 +63,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Devise for authentication
 gem 'devise', '~> 4.2'
 
-group :development, :test do
-  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
-end
+# group :development, :test do
+#   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+# end
 
-group :test do
-  gem 'capybara', '~> 2.9', '>= 2.9.1'
-end
+# group :test do
+#   gem 'capybara', '~> 2.9', '>= 2.9.1'
+# end
 
 group :development, :test do
   gem 'factory_bot_rails'
@@ -79,4 +79,16 @@ end
 group :test do
   # ...
   gem 'shoulda-matchers', '~> 3.1'
+end
+
+group :development, :test do
+  # ...
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
+end
+
+group :test do
+  gem 'database_cleaner'
 end

@@ -29,12 +29,17 @@
 
     <% @artist.songs.each do |song| %>
       <li class="songs">
-        <input id="song-<%=song.id%>" type="checkbox">
+        <input id="song-<%=song.id%>" type="checkbox" onChange="removeSong.bind(this)();">
         <label for="song-<%=song.id%>"><%= song.name %></label>
+
+        <a href="#" id="delete-song"><%= button_to "Delete Song", artist_path, remote: true,
+          method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary" %></a>
+        <br>
+        <!-- <a href="#" id="remove-song">delete</a> -->
       </li>
       <!-- <p class="deleten"><%= link_to "[Destroy Song]", [@artist, song], method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
     <% end %>
-
+    <br>
 
     <br>
 
