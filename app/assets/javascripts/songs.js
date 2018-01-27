@@ -19,13 +19,17 @@ function createNewSong(name) {
 
   var checkboxId = "song-" + nextSongId();
 
+  nextSongId() {
+    return $(".song").length + 1;
+  }
+
   var listItem = $("<li></li>")
   listItem.addClass("songs");
 
   var checkbox = $('<input>');
   checkbox.attr('type', 'checkbox');
   checkbox.attr('id', checkboxId);
-  checkbox.val(1)
+  // checkbox.val(1)
 
   var label = $('<label></label>');
   label.attr('for', checkboxId);
@@ -37,9 +41,6 @@ function createNewSong(name) {
   $(".songs").append(listItem);
 }
 
-  nextSongId() {
-    return $(".song").length + 1;
-  }
 
 
 function submitNewSong(event) {

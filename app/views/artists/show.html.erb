@@ -4,11 +4,30 @@
 
     <h1>Songs</h1>
 
-    <form onSubmit="submitNewSong(); return false">
+    <!-- <form onSubmit="submitNewSong(); return false">
       <input type="text" id="new-song" placeholder="Add name of song">
-    </form>
+    </form> -->
+
+
+    <%= form_for [@artist, @artist.songs.new] do |f| %>
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+          <div class="form-group" id="new-song">
+            <label>Name</label>
+            <%= f.text_field :name, placeholder: "Songtitle", class: "form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "Save", class: "btn btn-primary" %>
+          </div>
+        </div>
+    </div>
+
+    <% end %>
+
 
     <br>
+
 
     <% @artist.songs.each do |song| %>
       <li class="songs">
