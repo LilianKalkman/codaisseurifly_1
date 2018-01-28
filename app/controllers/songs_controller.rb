@@ -17,16 +17,16 @@ class SongsController < ApplicationController
     @song = @artist.songs.create(song_params)
 
     if @song.save
-    redirect_to artist_songs_path, notice: "Song Added"
+    redirect_to @artist, notice: "Song Added"
     else
-    render :new_artist_song_path
+    redirect_to @artist
     end
   end
 
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to artist_songs_path
+    redirect_to artist_song_path
   end
 
 private
