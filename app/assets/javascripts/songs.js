@@ -25,6 +25,7 @@ function createNewSong(name) {
           console.log(data);
 
           var checkboxId = "song-" + nextSongId();
+          var buttonId = "delete-song" + nextSongId();
 
           nextSongId() {
             return $(".song").length + 1;
@@ -39,12 +40,21 @@ function createNewSong(name) {
           // checkbox.bind('change', removeSongWithCheckbox);
           checkbox.onchange (removeSongWithCheckbox.bind(checkbox))
 
+          var button = $('<input>')
+          button.attr('type', 'button')
+          button.attr('id', buttonId);
+          button.addClass("remove")
+
+
           var label = $('<label></label>');
           label.attr('for', checkboxId);
           label.html(name);
 
+
           listItem.append(checkbox);
           listItem.append(label);
+          listItem.append(button);
+
 
           $(".songs").append(listItem);
 
@@ -83,6 +93,24 @@ function createNewSong(name) {
       //     $('tr[data-id="'+songId'"]').remove();
       //   });
       // }
+
+      $songs.delegate('.remove','click', function()  {
+
+        var $li = $(this).closest('li');
+
+        $.ajax({
+          type: 'DELETE',
+          url: 'api/artists/songs' + $(this).attr('id'),
+          success: function (){
+            $li.remove();
+          }
+        })
+      });
+
+      function removeSongWithButton(){
+        var button = this;
+        $(button).parent().remove();
+      }
 
       function removeSongWithCheckbox(){
         var checkbox = this;
