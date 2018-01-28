@@ -31,7 +31,10 @@
       <li class="songs">
         <input id="song-<%=song.id%>" type="checkbox" onChange="removeSongWithCheckbox.bind(this)();">
         <label for="song-<%=song.id%>"><%= song.name %></label>
-        <input type="button" id="delete-song-<%=song.id%>" class="remove">
+
+        <button type="button" id="delete-song-<%=song.id%>" class="remove">delete</button>
+
+
         <a href="#" id="delete-song-<%=song.id%>"><%= button_to "Delete Song", [@artist, song], remote: true,
           method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"%></a>
         <br>
